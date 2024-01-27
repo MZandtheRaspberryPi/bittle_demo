@@ -97,7 +97,7 @@ ffmpeg -framerate 5.3 -i ./20240122-233344/frame_%d.png -c:v libx264 -pix_fmt yu
 
 
 ## Areas for Improvement
-* The frame rate of the camera in Image Transmission mode, and the resolution are not amazing (240/180 pixels, 5fps? sometimes more). More advanced computer vision projects may suffer from this, but for hobby projects it may be ok. To be fair, this is a lot of data to transfer. 240 pixels times 180 pixels times 3 channels (RGB) results in 129,600 bytes of data per image. 10 images a second is is 10,368,000 Megabits per second.
+* The frame rate of the camera in Image Transmission mode, and the resolution are not amazing (240/180 pixels, 5fps? sometimes more). More advanced computer vision projects may suffer from this, but for hobby projects it may be ok. To be fair, this is a lot of data to transfer. 240 pixels times 180 pixels times 3 channels (RGB) results in 129,600 bytes of data per image. 10 images a second is 10,368,000 bits per second, or 10.3 Megabits.
 * The software serial port used to setup the camera's wlan is a weakpoint in that it is not super reliable. Plugging into the NyBoard may be more reliable, but when I compiled the OpenCat repo I noticed we were close to the limit on program storage space.
 * a better detection algorithm for faces is needed, perhaps one based on a CNN (there are implementations out there via opencv).
 * there is another library that does communication with the bittle, alas i found it too late. It seems it does more work to discover serial ports than the library I wrote. Find it [here](https://pypi.org/project/pyBittle/).
