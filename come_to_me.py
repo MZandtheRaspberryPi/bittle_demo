@@ -40,7 +40,7 @@ def main():
 
     output_dir = os.path.join(
         SAVE_DIR, datetime.now().strftime("%Y%m%d-%H%M%S"))
-    os.mkdir(SAVE_DIR)
+    os.mkdir(output_dir)
 
     my_bittle_controller = BittleSerialController(port=SERIAL_PORT)
     my_bittle_controller.start()
@@ -76,7 +76,7 @@ def main():
             last_cmd_time = time.time()
         frame_counter += 1
         cv2.imwrite(os.path.join(
-            SAVE_DIR, IMAGE_NAME_TEMPLATE.format(frame_counter)), image)
+            output_dir, IMAGE_NAME_TEMPLATE.format(frame_counter)), image)
         key = my_keyboard_listener.get_key()
         if key == "q":
             print("exiting")
